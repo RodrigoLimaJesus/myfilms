@@ -9,9 +9,9 @@ export default function FilmsProvider({ children }) {
 
   useEffect(() => {
     async function initialFetchs() {
-      const popularMovies = await movies.getPopular(1);
+      const popular = await movies.getPopular(1);
 
-      setPopularMovies(popularMovies);
+      setPopularMovies(popular);
       setIsMounted(true);
     }
 
