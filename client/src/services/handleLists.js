@@ -1,26 +1,26 @@
 const { REACT_APP_BASE_URL_SERVER } = process.env;
 
-async function getPopular({ page, lenguage }) {
+async function getPopular({ page, lenguage, type }) {
   try {
     const response = await fetch(
-      `${REACT_APP_BASE_URL_SERVER}/movies/popular`,
+      `${REACT_APP_BASE_URL_SERVER}/${type}/popular`,
       {
         headers: { page, lenguage },
       },
     );
-    const popularMovies = await response.json();
+    const popular = await response.json();
 
-    return popularMovies;
+    return popular;
   } catch (error) {
     console.log(error);
     return [];
   }
 }
 
-async function getTopRated({ page, lenguage }) {
+async function getTopRated({ page, lenguage, type }) {
   try {
     const response = await fetch(
-      `${REACT_APP_BASE_URL_SERVER}/movies/top_rated`,
+      `${REACT_APP_BASE_URL_SERVER}/${type}/top_rated`,
       {
         headers: { page, lenguage },
       },
@@ -34,6 +34,6 @@ async function getTopRated({ page, lenguage }) {
   }
 }
 
-const movieFunctions = { getPopular, getTopRated };
+const handleLists = { getPopular, getTopRated };
 
-export default movieFunctions;
+export default handleLists;
