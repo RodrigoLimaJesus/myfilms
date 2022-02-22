@@ -8,11 +8,10 @@ export default function FilmsProvider({ children }) {
   const [popularMovies, setPopularMovies] = useState([]);
 
   useEffect(() => {
-    const { REACT_APP_MOVIEDB_KEY } = process.env;
     async function initialFetchs() {
-      const popular = await movies.getPopular(REACT_APP_MOVIEDB_KEY, 1);
+      const popularMovies = await movies.getPopular(1);
 
-      setPopularMovies(popular);
+      setPopularMovies(popularMovies);
       setIsMounted(true);
     }
 

@@ -11,7 +11,7 @@ export default function Header() {
 
   return (
     <header
-      className={`h-44 w-screen bg-cover bg-no-repeat bg-[url(https://image.tmdb.org/t/p/original${backdrop_path})]`}
+      className={`h-[45vw] w-screen bg-cover bg-no-repeat bg-[url(https://image.tmdb.org/t/p/original${backdrop_path})]`}
     >
       <div className="p-3 h-full bg-black/40">
         <div className="flex justify-between items-center">
