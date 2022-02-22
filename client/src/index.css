@@ -7,3 +7,20 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.scrollbar-thin::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: none;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background: #f1f1f1;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
