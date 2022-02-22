@@ -8,7 +8,7 @@ export default function Home() {
   const { popularMovies, topRatedMovies, popularTv, topRatedTv } =
     useContext(AppContext);
   return (
-    <div className="bg-black text-white w-screen h-screen overflow-y-auto fixed">
+    <div>
       <Header />
       <List listName="Filmes mais vistos" listContent={popularMovies} />
       <List listName="Filmes mais bem avaliados" listContent={topRatedMovies} />

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import AppContext from './AppContext';
+import Loading from '../components/Loading';
 import handleLists from '../services/handleLists';
 
 export default function FilmsProvider({ children }) {
@@ -44,18 +45,21 @@ export default function FilmsProvider({ children }) {
     }
   }, [isMounted]);
 
-  return (
-    isMounted && (
-      <AppContext.Provider
-        value={{
-          popularMovies,
-          topRatedMovies,
-          popularTv,
-          topRatedTv,
-        }}
-      >
-        {children}
-      </AppContext.Provider>
-    )
+  return isMounted ? (
+    <AppContext.Provider
+      value={{
+        popularMovies,
+        topRatedMovies,
+        popularTv,
+        topRatedTv,
+      }}
+    >
+      {children}
+    </AppContext.Provider>
+  ) : (
+    <div className="flex flex-col items-center justify-center w-screen h-screen">
+      <h1 className="text-red-500 text-5xl font-bold">MyFilms</h1>
+      <Loading />
+    </div>
   );
 }
