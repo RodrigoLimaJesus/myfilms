@@ -6,12 +6,17 @@ import movies from '../services/movies';
 export default function FilmsProvider({ children }) {
   const [isMounted, setIsMounted] = useState(false);
   const [popularMovies, setPopularMovies] = useState([]);
+  const [topRatedMovies, setTopRatedMovies] = useState([]);
+  const appLenguage = 'pt-br';
 
   useEffect(() => {
     async function initialFetchs() {
-      const popular = await movies.getPopular(1);
+      const headers = { page: 1, lenguage: appLenguage };
+      const popular = await movies.getPopular(headers);
+      const topRated = await movies.getTopRated(headers);
 
       setPopularMovies(popular);
+      setTopRatedMovies(topRated);
       setIsMounted(true);
     }
 
@@ -25,6 +30,7 @@ export default function FilmsProvider({ children }) {
       <AppContext.Provider
         value={{
           popularMovies,
+          topRatedMovies,
         }}
       >
         {children}
