@@ -16,6 +16,14 @@ app.use('/movies', movieController);
 
 app.use('/tv', tvController);
 
+app.use((err, _req, res, _next) => {
+  if (err.response.status) {
+    return res.status(err.response.status).json({ message: err.message });
+  }
+
+  return res.status(500).json({ message: err.message });
+});
+
 app.all('*', (_req, res) => {
   return res.status(404).json({ message: 'Página não econtrada' });
 });
