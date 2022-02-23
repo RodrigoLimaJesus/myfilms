@@ -1,14 +1,13 @@
 const express = require('express');
 const rescue = require('express-rescue');
-const tvService = require('../services/tvService');
+const movieDbService = require('../services/movieDbService');
 const axios = require('axios');
 const moviesController = express.Router();
 
 moviesController.get(
   '/popular',
   rescue(async (req, res) => {
-    const { page, lenguage } = req.headers;
-    const popular = await tvService.getPopular({ page, lenguage });
+    const popular = await movieDbService.getPopular(req);
     return res.status(200).json(popular);
   }),
 );
@@ -16,8 +15,7 @@ moviesController.get(
 moviesController.get(
   '/top_rated',
   rescue(async (req, res) => {
-    const { page, lenguage } = req.headers;
-    const topRated = await tvService.getTopRated({ page, lenguage });
+    const topRated = await movieDbService.getTopRated(req);
     return res.status(200).json(topRated);
   }),
 );

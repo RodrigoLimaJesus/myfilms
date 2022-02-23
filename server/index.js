@@ -4,17 +4,16 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
 
-const movieController = require('./controllers/movieController');
-const tvController = require('./controllers/tvController');
+const movieDbController = require('./controllers/movieDbController');
 
 const PORT = '3001';
 
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use('/movies', movieController);
+app.use('/movie', movieDbController);
 
-app.use('/tv', tvController);
+app.use('/tv', movieDbController);
 
 app.use((err, _req, res, _next) => {
   if (err.response.status) {
