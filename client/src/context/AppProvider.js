@@ -57,9 +57,6 @@ export default function FilmsProvider({ children }) {
       {children}
     </AppContext.Provider>
   ) : (
-    <div className="flex flex-col items-center justify-center w-screen h-screen">
-      <h1 className="text-red-500 text-5xl font-bold">MyFilms</h1>
-      <Loading />
-    </div>
+    <Loading />
   );
 }

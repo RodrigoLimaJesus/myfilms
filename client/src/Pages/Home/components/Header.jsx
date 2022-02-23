@@ -4,6 +4,7 @@ import { FaUserCircle } from 'react-icons/fa';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 
+import MyFilmsLogo from '../../../images/myfilms.png';
 import AppContext from '../../../context/AppContext';
 
 export default function Header() {
@@ -24,9 +25,11 @@ export default function Header() {
     >
       <div className="p-4 h-full bg-black/40 flex flex-col justify-between md:p-5 lg:p-6">
         <div className="flex justify-between items-center">
-          <h1 className="text-red-500 text-3xl font-bold md:text-4xl">
-            MyFilms
-          </h1>
+          <img
+            src={MyFilmsLogo}
+            alt="MyFilms logo"
+            className="w-20 md:w-32 lg:w-40"
+          />
           <div className="flex justify-between text-2xl w-24 md:text-3xl md:w-32">
             {buttonsMenu.map(({ Icon, name }) => (
               <button key={name} type="button">
@@ -47,7 +50,7 @@ export default function Header() {
 
           <button
             type="button"
-            className="bg-white text-black rounded w-20 py-1 px-2 flex flex-row justify-between items-center md:w-24 md:text-lg lg:w-28 lg:px-3"
+            className="bg-white text-black font-bold rounded w-20 py-1 px-2 flex flex-row justify-between items-center md:w-24 md:text-lg lg:w-28 lg:px-3"
           >
             <BsFillPlayFill />
             Trailer
