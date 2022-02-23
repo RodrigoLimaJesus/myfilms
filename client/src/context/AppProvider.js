@@ -18,11 +18,11 @@ export default function FilmsProvider({ children }) {
 
       const popularM = await handleLists.getPopular({
         ...headers,
-        type: 'movies',
+        type: 'movie',
       });
       const topRatedM = await handleLists.getTopRated({
         ...headers,
-        type: 'movies',
+        type: 'movie',
       });
       const popularT = await handleLists.getPopular({
         ...headers,
