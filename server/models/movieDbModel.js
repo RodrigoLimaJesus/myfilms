@@ -15,4 +15,12 @@ async function getTopRated({ page, lenguage, type }) {
   return data;
 }
 
-module.exports = { getPopular, getTopRated };
+async function getDetails({ type, lenguage, id }) {
+  const { data } = await axios.get(
+    `https://api.themoviedb.org/3/${type}/${id}?api_key=${KEY_MOVIEDB}&language=${lenguage}`,
+  );
+
+  return data;
+}
+
+module.exports = { getPopular, getTopRated, getDetails };
