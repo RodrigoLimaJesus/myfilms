@@ -1,38 +1,50 @@
+import axios from 'axios';
+import defaultResponses from './defaultResponses';
+
 const { REACT_APP_BASE_URL_SERVER } = process.env;
 
 async function getPopular({ page, lenguage, type }) {
   try {
-    const response = await fetch(
+    const popular = await axios.get(
       `${REACT_APP_BASE_URL_SERVER}/${type}/popular`,
-      {
-        headers: { page, lenguage },
-      },
+      { headers: { page, lenguage } },
     );
-    const popular = await response.json();
 
-    return popular;
-  } catch (error) {
-    console.log(error);
-    return [];
+    return popular.data;
+  } catch (err) {
+    console.log(err);
+
+    if (type === 'movie') {
+      return defaultResponses.popularMovie;
+    }
+
+    return defaultResponses.popularTv;
   }
 }
 
 async function getTopRated({ page, lenguage, type }) {
   try {
-    const response = await fetch(
+    const topRated = await axios.get(
       `${REACT_APP_BASE_URL_SERVER}/${type}/top_rated`,
-      {
-        headers: { page, lenguage },
-      },
+      { headers: { page, lenguage } },
     );
-    const topRated = await response.json();
 
-    return topRated;
-  } catch (error) {
-    console.log(error);
-    return [];
+    return topRated.data;
+  } catch (err) {
+    console.log(err);
+
+    if (type === 'movie') {
+      return defaultResponses.topRatedMovie;
+    }
+
+    return defaultResponses.topRatedTv;
   }
 }
+
+// async function getDetails({ id, lenguage, type }) {
+//   try {
+//   } catch (error) {}
+// }
 
 const handleLists = { getPopular, getTopRated };
 
