@@ -1,5 +1,4 @@
 import axios from 'axios';
-import defaultResponses from './defaultResponses';
 
 const { REACT_APP_BASE_URL_SERVER } = process.env;
 
@@ -14,11 +13,7 @@ async function getPopular({ page, lenguage, type }) {
   } catch (err) {
     console.log(err);
 
-    if (type === 'movie') {
-      return defaultResponses.popularMovie;
-    }
-
-    return defaultResponses.popularTv;
+    return [];
   }
 }
 
@@ -33,11 +28,7 @@ async function getTopRated({ page, lenguage, type }) {
   } catch (err) {
     console.log(err);
 
-    if (type === 'movie') {
-      return defaultResponses.topRatedMovie;
-    }
-
-    return defaultResponses.topRatedTv;
+    return [];
   }
 }
 
