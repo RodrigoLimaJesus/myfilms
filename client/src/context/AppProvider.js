@@ -16,27 +16,17 @@ export default function FilmsProvider({ children }) {
     async function initialFetchs() {
       const headers = { page: 1, lenguage: appLenguage };
 
-      const popularM = await handleLists.getPopular({
-        ...headers,
-        type: 'movie',
-      });
-      const topRatedM = await handleLists.getTopRated({
-        ...headers,
-        type: 'movie',
-      });
-      const popularT = await handleLists.getPopular({
-        ...headers,
-        type: 'tv',
-      });
-      const topRatedT = await handleLists.getTopRated({
-        ...headers,
-        type: 'tv',
-      });
+      const [popularMv, topRatedMv, popularTv, topRatedTv] = await Promise.all([
+        handleLists.getPopular({ ...headers, type: 'movie' }),
+        handleLists.getTopRated({ ...headers, type: 'movie' }),
+        handleLists.getPopular({ ...headers, type: 'tv' }),
+        handleLists.getTopRated({ ...headers, type: 'tv' }),
+      ]);
 
-      setPopularMovies(popularM);
-      setTopRatedMovies(topRatedM);
-      setPopularTv(popularT);
-      setTopRatedTv(topRatedT);
+      setPopularMovies(popularMv);
+      setTopRatedMovies(topRatedMv);
+      setPopularTv(popularTv);
+      setTopRatedTv(topRatedTv);
       setIsMounted(true);
     }
 
