@@ -42,7 +42,7 @@ export default function Header() {
         <div className="flex flex-row justify-between items-center">
           <button
             type="button"
-            className="text-xs flex flex-col items-center lg:text-xl"
+            className="text-xs flex flex-col items-center md:text-xl lg:text-2xl"
           >
             <BsPlusLg />
             <span className="mt-1">Minha Lista</span>
@@ -58,7 +58,7 @@ export default function Header() {
 
           <button
             type="button"
-            className="text-xs flex flex-col items-center lg:text-xl"
+            className="text-xs flex flex-col items-center md:text-xl lg:text-2xl"
           >
             <AiOutlineInfoCircle />
             <span className="mt-1">Saiba mais</span>
