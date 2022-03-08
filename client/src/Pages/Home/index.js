@@ -10,10 +10,22 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <List listName="Filmes mais vistos" listContent={popularMovies} />
-      <List listName="Filmes mais bem avaliados" listContent={topRatedMovies} />
-      <List listName="Séries mais vistas" listContent={popularTv} />
-      <List listName="Séries mais bem avaliadas" listContent={topRatedTv} />
+      <List
+        listName="Filmes mais vistos"
+        listContent={popularMovies}
+        type="movie"
+      />
+      <List
+        listName="Filmes mais bem avaliados"
+        listContent={topRatedMovies}
+        type="movie"
+      />
+      <List listName="Séries mais vistas" listContent={popularTv} type="tv" />
+      <List
+        listName="Séries mais bem avaliadas"
+        listContent={topRatedTv}
+        type="tv"
+      />
     </div>
   );
 }
