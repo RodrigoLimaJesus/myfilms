@@ -1,15 +1,15 @@
 import axios from 'axios';
 
-const { REACT_APP_BASE_URL_SERVER } = process.env;
+const { REACT_APP_KEY_MOVIEDB: KEY_MOVIEDB } = process.env;
+const BASE_URL = 'https://api.themoviedb.org/3';
 
 async function getPopular({ page, lenguage, type }) {
   try {
-    const popular = await axios.get(
-      `${REACT_APP_BASE_URL_SERVER}/${type}/popular`,
-      { headers: { page, lenguage } },
+    const { data } = await axios.get(
+      `${BASE_URL}/${type}/popular?api_key=${KEY_MOVIEDB}&language=${lenguage}&page=${page}`,
     );
 
-    return popular.data;
+    return data.results;
   } catch (err) {
     console.log(err);
 
@@ -19,12 +19,11 @@ async function getPopular({ page, lenguage, type }) {
 
 async function getTopRated({ page, lenguage, type }) {
   try {
-    const topRated = await axios.get(
-      `${REACT_APP_BASE_URL_SERVER}/${type}/top_rated`,
-      { headers: { page, lenguage } },
+    const { data } = await axios.get(
+      `${BASE_URL}/${type}/top_rated?api_key=${KEY_MOVIEDB}&language=${lenguage}&page=${page}`,
     );
 
-    return topRated.data;
+    return data.results;
   } catch (err) {
     console.log(err);
 
