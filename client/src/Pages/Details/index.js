@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 
 import AppContext from '../../context/AppContext';
 import handleLists from '../../services/handleLists';
+import Description from './components/Description';
+import VideoOrThumb from './components/VideoOrThumb';
 
 export default function Details() {
   const { id, type } = useParams();
@@ -20,34 +22,28 @@ export default function Details() {
         handleLists.getVieos(options),
       ]);
 
-      setDetails(detailsInfo);
-      console.log(detailsInfo);
       const officialVideosInfo = videosInfo.filter((info) => info.official);
       let firstKey;
 
       if (officialVideosInfo.length >= 1) {
         firstKey = officialVideosInfo[0].key;
       }
+
+      setDetails(detailsInfo);
       setVideoKey(firstKey);
+      setIsMounted(true);
     }
 
     if (!isMounted) {
       getDetailAndVideos();
-      setIsMounted(true);
     }
   }, [appLanguage, id, type, isMounted]);
 
   return (
     isMounted && (
       <div>
-        <iframe
-          width="320"
-          height="240"
-          src={`https://www.youtube.com/embed/${videoKey}?autoplay=1&mute=1&loop=1`}
-          title={details.title}
-        >
-          Your browser does not support iframes.
-        </iframe>
+        <VideoOrThumb details={details} videoKey={videoKey} />
+        <Description details={details} />
       </div>
     )
   );

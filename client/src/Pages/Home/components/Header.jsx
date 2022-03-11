@@ -21,7 +21,7 @@ export default function Header() {
       style={{
         backgroundImage: `url(https://image.tmdb.org/t/p/original${backdrop_path})`,
       }}
-      className={`h-[43vw] w-full bg-cover bg-no-repeat`}
+      className="h-[43vw] w-full bg-cover bg-no-repeat"
     >
       <div className="p-4 h-full bg-black/40 flex flex-col justify-between md:p-5 lg:p-6">
         <div className="flex justify-between items-center">
