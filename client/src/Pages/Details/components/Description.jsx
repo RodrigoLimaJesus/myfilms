@@ -7,13 +7,12 @@ export default function Description({ details }) {
   const voteAverage = details.vote_average * 10;
   const sinopse = details.overview;
 
-  function setAverageBorderColor() {
-    if (voteAverage <= 50) return 'red';
-    else if (voteAverage > 50 && voteAverage <= 75) return 'orange';
-    else return 'green';
-  }
-
-  const averageBorderColor = setAverageBorderColor();
+  const averageBorderColor =
+    voteAverage <= 50
+      ? 'red'
+      : voteAverage > 50 && voteAverage <= 75
+      ? 'orange'
+      : 'green';
 
   return (
     <div className="flex flex-col mx-2 my-4">

@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+import Loading from '../../components/Loading';
 import AppContext from '../../context/AppContext';
 import handleLists from '../../services/handleLists';
 import Description from './components/Description';
@@ -39,12 +40,12 @@ export default function Details() {
     }
   }, [appLanguage, id, type, isMounted]);
 
-  return (
-    isMounted && (
-      <div>
-        <VideoOrThumb details={details} videoKey={videoKey} />
-        <Description details={details} />
-      </div>
-    )
+  return isMounted ? (
+    <div>
+      <VideoOrThumb details={details} videoKey={videoKey} />
+      <Description details={details} />
+    </div>
+  ) : (
+    <Loading />
   );
 }
