@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import AppContext from '../../context/AppContext';
-import HeaderHome from './components/HeaderHome';
+import BackdropPath from './components/BackdropPath';
 import List from './components/List';
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
     useContext(AppContext);
   return (
     <div>
-      <HeaderHome />
+      <BackdropPath />
       <List
         listName="Filmes mais vistos"
         listContent={popularMovies}

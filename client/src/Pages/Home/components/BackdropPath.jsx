@@ -5,7 +5,7 @@ import { AiOutlineInfoCircle } from 'react-icons/ai';
 
 import AppContext from '../../../context/AppContext';
 
-export default function HeaderHome() {
+export default function BackdropPath() {
   const { popularMovies } = useContext(AppContext);
   const { backdrop_path } = popularMovies[0];
 
