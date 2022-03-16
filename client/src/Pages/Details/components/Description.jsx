@@ -18,12 +18,12 @@ export default function Description({ details }) {
   console.log(details);
   return (
     <div className="flex flex-col mx-2 my-4">
-      <h1 className="text-xl font-bold">
+      <h1 className="text-xl font-bold md:text-3xl">
         {title}{' '}
         <span className="text-gray-300/50">({releaseYear.split('-')[0]})</span>
       </h1>
 
-      <span className="text-gray-300 my-2">{genres.join(', ')}</span>
+      <span className="text-gray-300 my-2 md:text-xl">{genres.join(', ')}</span>
 
       <div>
         <span
@@ -35,8 +35,8 @@ export default function Description({ details }) {
       </div>
 
       <div className="my-3">
-        <h2 className="text-lg font-bold">Sinopse</h2>
-        <p>{sinopse}</p>
+        <h2 className="text-lg font-bold md:text-2xl">Sinopse</h2>
+        <p className="md:text-lg">{sinopse}</p>
       </div>
     </div>
   );

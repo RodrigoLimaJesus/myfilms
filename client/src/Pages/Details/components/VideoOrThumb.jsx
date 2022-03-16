@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function VideoOrThumb({ videoKey, details }) {
   return (
-    <div className="h-[43vw] w-full">
+    <div className="h-[43vw] w-full mt-12 md:mt-16 lg:mt-20">
       {videoKey ? (
         <iframe
           src={`https://www.youtube.com/embed/${videoKey}?autoplay=1&mute=1&loop=1`}

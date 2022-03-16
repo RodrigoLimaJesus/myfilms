@@ -1,44 +1,22 @@
 import React, { useContext } from 'react';
-import { BsSearch, BsPlusLg, BsFillPlayFill } from 'react-icons/bs';
-import { FaUserCircle } from 'react-icons/fa';
-import { GiHamburgerMenu } from 'react-icons/gi';
+import { BsPlusLg, BsFillPlayFill } from 'react-icons/bs';
+
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 
-import MyFilmsLogo from '../../../images/myfilms.png';
 import AppContext from '../../../context/AppContext';
 
-export default function Header() {
+export default function HeaderHome() {
   const { popularMovies } = useContext(AppContext);
   const { backdrop_path } = popularMovies[0];
-  const buttonsMenu = [
-    { Icon: BsSearch, name: 'search-home-btn' },
-    { Icon: GiHamburgerMenu, name: 'menu-home-btn' },
-    { Icon: FaUserCircle, name: 'user-home-btn' },
-  ];
 
   return (
-    <header
+    <div
       style={{
         backgroundImage: `url(https://image.tmdb.org/t/p/original${backdrop_path})`,
       }}
       className="h-[43vw] w-full bg-cover bg-no-repeat"
     >
-      <div className="p-4 h-full bg-black/40 flex flex-col justify-between md:p-5 lg:p-6">
-        <div className="flex justify-between items-center">
-          <img
-            src={MyFilmsLogo}
-            alt="MyFilms logo"
-            className="w-20 md:w-32 lg:w-40"
-          />
-          <div className="flex justify-between text-2xl w-24 md:text-3xl md:w-32">
-            {buttonsMenu.map(({ Icon, name }) => (
-              <button key={name} type="button">
-                <Icon />
-              </button>
-            ))}
-          </div>
-        </div>
-
+      <div className="p-4 h-full bg-black/40 flex flex-col-reverse justify-between md:p-5 lg:p-6">
         <div className="flex flex-row justify-between items-center">
           <button
             type="button"
@@ -65,6 +43,6 @@ export default function Header() {
           </button>
         </div>
       </div>
-    </header>
+    </div>
   );
 }
