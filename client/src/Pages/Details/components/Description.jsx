@@ -15,7 +15,6 @@ export default function Description({ details }) {
 
   const averageBorderColor = setAverageBorderColor();
 
-  console.log(details);
   return (
     <div className="flex flex-col mx-2 my-4">
       <h1 className="text-xl font-bold md:text-3xl">
