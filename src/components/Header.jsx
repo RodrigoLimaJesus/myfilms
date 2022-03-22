@@ -11,6 +11,8 @@ export default function Header() {
   const navigate = useNavigate();
   const pathsToShowGoBack = ['/details'];
 
+  const canGoBack = pathsToShowGoBack.some((path) => pathname.includes(path));
+
   const buttonsMenu = [
     { Icon: BsSearch, name: 'search-home-btn' },
     { Icon: GiHamburgerMenu, name: 'menu-home-btn' },
@@ -19,8 +21,8 @@ export default function Header() {
 
   return (
     <div className="flex justify-between items-center absolute top-0 left-0 right-0 p-3">
-      {pathsToShowGoBack.some((path) => pathname.includes(path)) ? (
-        <div className="flex">
+      <div className="flex">
+        {canGoBack && (
           <button
             type="button"
             onClick={() => navigate(-1)}
@@ -28,21 +30,19 @@ export default function Header() {
           >
             <FaArrowLeft />
           </button>
-          <button type="button" onClick={() => navigate('/')}>
-            <img
-              src={MyFilmsLogo}
-              alt="MyFilms logo"
-              className="w-20 md:w-32 lg:w-40"
-            />
-          </button>
-        </div>
-      ) : (
-        <img
-          src={MyFilmsLogo}
-          alt="MyFilms logo"
-          className="w-20 md:w-32 lg:w-40"
-        />
-      )}
+        )}
+        <button
+          type="button"
+          onClick={() => navigate('/')}
+          disabled={!canGoBack}
+        >
+          <img
+            src={MyFilmsLogo}
+            alt="MyFilms logo"
+            className="w-20 md:w-32 lg:w-40"
+          />
+        </button>
+      </div>
 
       <div className="flex justify-between text-2xl w-24 md:text-3xl md:w-32">
         {buttonsMenu.map(({ Icon, name }) => (
