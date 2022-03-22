@@ -6,6 +6,8 @@ import AppContext from '../../context/AppContext';
 import handleLists from '../../services/handleLists';
 import Description from './components/Description';
 import VideoOrThumb from './components/VideoOrThumb';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 export default function Details() {
   const { id, type } = useParams();
@@ -42,8 +44,10 @@ export default function Details() {
 
   return isMounted ? (
     <div>
+      <Header />
       <VideoOrThumb details={details} videoKey={videoKey} />
       <Description details={details} />
+      <Footer />
     </div>
   ) : (
     <Loading />
