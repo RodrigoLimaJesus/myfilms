@@ -9,7 +9,7 @@ import MyFilmsLogo from '../images/myfilms.png';
 export default function Header() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const pathsToHideLogo = ['/details'];
+  const pathsToShowGoBack = ['/details'];
 
   const buttonsMenu = [
     { Icon: BsSearch, name: 'search-home-btn' },
@@ -19,14 +19,23 @@ export default function Header() {
 
   return (
     <div className="flex justify-between items-center absolute top-0 left-0 right-0 p-3">
-      {pathsToHideLogo.some((path) => pathname.includes(path)) ? (
-        <button
-          type="button"
-          onClick={() => navigate(-1)}
-          className="text-2xl md:text-3xl"
-        >
-          <FaArrowLeft />
-        </button>
+      {pathsToShowGoBack.some((path) => pathname.includes(path)) ? (
+        <div className="flex">
+          <button
+            type="button"
+            onClick={() => navigate(-1)}
+            className="text-2xl mr-3 md:text-3xl"
+          >
+            <FaArrowLeft />
+          </button>
+          <button type="button" onClick={() => navigate('/')}>
+            <img
+              src={MyFilmsLogo}
+              alt="MyFilms logo"
+              className="w-20 md:w-32 lg:w-40"
+            />
+          </button>
+        </div>
       ) : (
         <img
           src={MyFilmsLogo}
