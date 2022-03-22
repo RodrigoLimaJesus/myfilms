@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 
 import AppContext from '../../context/AppContext';
 import BackdropPath from './components/BackdropPath';
-import List from './components/List';
+import List from '../../components/List';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
