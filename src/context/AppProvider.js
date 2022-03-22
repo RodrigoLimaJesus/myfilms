@@ -10,17 +10,17 @@ export default function FilmsProvider({ children }) {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const [popularTv, setPopularTv] = useState([]);
   const [topRatedTv, setTopRatedTv] = useState([]);
-  const appLenguage = 'pt-br';
+  const appLanguage = 'pt-br';
 
   useEffect(() => {
     async function initialFetchs() {
-      const headers = { page: 1, lenguage: appLenguage };
+      const options = { page: 1, language: appLanguage };
 
       const [popularMv, topRatedMv, popularTv, topRatedTv] = await Promise.all([
-        handleLists.getPopular({ ...headers, type: 'movie' }),
-        handleLists.getTopRated({ ...headers, type: 'movie' }),
-        handleLists.getPopular({ ...headers, type: 'tv' }),
-        handleLists.getTopRated({ ...headers, type: 'tv' }),
+        handleLists.getPopular({ ...options, type: 'movie' }),
+        handleLists.getTopRated({ ...options, type: 'movie' }),
+        handleLists.getPopular({ ...options, type: 'tv' }),
+        handleLists.getTopRated({ ...options, type: 'tv' }),
       ]);
 
       setPopularMovies(popularMv);
@@ -42,6 +42,7 @@ export default function FilmsProvider({ children }) {
         topRatedMovies,
         popularTv,
         topRatedTv,
+        appLanguage,
       }}
     >
       {children}

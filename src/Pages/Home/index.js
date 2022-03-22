@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 
 import AppContext from '../../context/AppContext';
-import Header from './components/Header';
-import List from './components/List';
+import BackdropPath from './components/BackdropPath';
+import List from '../../components/List';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 export default function Home() {
   const { popularMovies, topRatedMovies, popularTv, topRatedTv } =
@@ -10,6 +12,7 @@ export default function Home() {
   return (
     <div>
       <Header />
+      <BackdropPath />
       <List
         listName="Filmes mais vistos"
         listContent={popularMovies}
@@ -26,6 +29,7 @@ export default function Home() {
         listContent={topRatedTv}
         type="tv"
       />
+      <Footer />
     </div>
   );
 }
