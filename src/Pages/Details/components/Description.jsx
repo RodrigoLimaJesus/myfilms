@@ -25,7 +25,8 @@ export default function Description({ details }) {
 
       <div>
         <span
-          className={`bg-gray-500/60 font-bold inline-block w-fit rounded-full px-2 py-3 m-1 border-4 border-${averageBorderColor}-600`}
+          style={{ borderColor: averageBorderColor }}
+          className="bg-gray-500/60 font-bold inline-block w-fit rounded-full px-2 py-3 m-1 border-4"
         >
           {`${voteAverage}% `}{' '}
         </span>
