@@ -13,3 +13,5 @@ Abaixo é possível ver algumas das telas já feitas, lembrando que o projeto ai
 ## Página de detalhes
 
 <img src="./src/images/page-details.png" alt="Page details image" width="50%"/>
+
+### Feedbacks são muito bem vindos, sem eles tenho certeza que eu não conseguiria ter me desenvolvido até aqui, fiquem a vontade para contribuir!!
