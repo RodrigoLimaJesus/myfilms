@@ -9,10 +9,8 @@ export default function Loading() {
         alt="My Films Logo"
         className="w-40 md:w-48 lg:w-52"
       />
-      <iframe
-        src="https://embed.lottiefiles.com/animation/96231"
-        title="Loading animation"
-      ></iframe>
+
+      <div className="bloom mt-4" />
     </div>
   );
 }
