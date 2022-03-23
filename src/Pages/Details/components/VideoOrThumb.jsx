@@ -5,10 +5,11 @@ export default function VideoOrThumb({ videoKey, details }) {
     <div className="h-[43vw] w-full mt-12 md:mt-16 lg:mt-20">
       {videoKey ? (
         <iframe
-          src={`https://www.youtube.com/embed/${videoKey}?autoplay=1&mute=1&loop=1`}
+          src={`https://www.youtube.com/embed/${videoKey}?autoplay=1&mute=1&loop=1&controls=1`}
           title={details.title}
-          allowFullScreen="allowfullscreen"
+          allowFullScreen
           className="h-full w-full"
+          loading="eager"
         >
           Your browser does not support iframes.
         </iframe>
