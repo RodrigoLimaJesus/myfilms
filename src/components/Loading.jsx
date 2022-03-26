@@ -7,7 +7,7 @@ export default function Loading() {
       <img
         src={MyFilmsLogo}
         alt="My Films Logo"
-        className="w-40 md:w-48 lg:w-52"
+        className="select-none w-40 md:w-48 lg:w-52"
       />
 
       <div className="bloom mt-4" />

@@ -5,7 +5,11 @@ export default function Footer() {
   return (
     <footer className="flex flex-col justify-between items-center md:flex-row md:text-lg lg:text-xl">
       <div className="flex flex-row justify-center items-center m-2 md:m-4">
-        <img src={TmdbLogo} alt="The Movie Database Logo" className="w-14" />
+        <img
+          src={TmdbLogo}
+          alt="The Movie Database Logo"
+          className="select-none w-14"
+        />
         <span className="text-xs ml-2 lg:text-sm">
           This product uses the TMDB API but is not endorsed or certified by
           TMDB.

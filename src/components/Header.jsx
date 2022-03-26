@@ -39,7 +39,7 @@ export default function Header() {
           <img
             src={MyFilmsLogo}
             alt="MyFilms logo"
-            className="w-20 md:w-32 lg:w-40"
+            className="select-none w-20 md:w-32 lg:w-40"
           />
         </button>
       </div>
