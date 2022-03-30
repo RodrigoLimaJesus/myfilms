@@ -31,15 +31,11 @@ export default function Header() {
             <FaArrowLeft />
           </button>
         )}
-        <button
-          type="button"
-          onClick={() => navigate('/')}
-          disabled={!canGoBack}
-        >
+        <button type="button" onClick={() => navigate('/')} disabled={!canGoBack}>
           <img
             src={MyFilmsLogo}
             alt="MyFilms logo"
-            className="select-none w-20 md:w-32 lg:w-40"
+            className="select-none w-20 sm:w-28 md:w-32 lg:w-40"
           />
         </button>
       </div>
