@@ -14,9 +14,9 @@ export default function Header() {
   const canGoBack = pathsToShowGoBack.some((path) => pathname.includes(path));
 
   const buttonsMenu = [
-    { Icon: BsSearch, name: 'search-home-btn' },
-    { Icon: GiHamburgerMenu, name: 'menu-home-btn' },
-    { Icon: FaUserCircle, name: 'user-home-btn' },
+    { icon: <BsSearch />, name: 'search-home-btn' },
+    { icon: <GiHamburgerMenu />, name: 'menu-home-btn' },
+    { icon: <FaUserCircle />, name: 'user-home-btn' },
   ];
 
   return (
@@ -41,9 +41,9 @@ export default function Header() {
       </div>
 
       <div className="flex justify-between text-2xl w-24 md:text-3xl md:w-32">
-        {buttonsMenu.map(({ Icon, name }) => (
+        {buttonsMenu.map(({ icon, name }) => (
           <button key={name} type="button">
-            <Icon />
+            {icon}
           </button>
         ))}
       </div>
