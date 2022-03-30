@@ -1,12 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function List({ listName, listContent, type }) {
+export default function List({ listName, listContent, type, flexWrap = false }) {
+  const STYLE_WRAP = flexWrap
+    ? { flexWrap: 'wrap', justifyContent: 'center' }
+    : { flexWrap: 'nowrap', justifyContent: 'initial' };
+
   return (
     listContent.length >= 1 && (
       <div className="m-3 select-none">
         <h2 className="font-bold text-xl mb-2">{listName}</h2>
-        <div className="scrollbar-thin overflow-x-auto flex flex-row">
+        <div style={STYLE_WRAP} className="scrollbar-thin overflow-x-auto flex flex-row">
           {listContent
             .filter(({ poster_path }) => poster_path)
             .map(({ id, poster_path, title }) => (
