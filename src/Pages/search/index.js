@@ -41,7 +41,7 @@ export default function Search() {
     }
   }, [inputSearch, inputType, canSearch, appLanguage]);
 
-  return !canSearch ? (
+  return (
     <div>
       <Header />
 
@@ -73,7 +73,5 @@ export default function Search() {
 
       <Footer />
     </div>
-  ) : (
-    <Loading />
   );
 }
