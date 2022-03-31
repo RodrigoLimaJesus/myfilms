@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import AppProvider from './context/AppProvider';
 import Home from './Pages/Home';
 import Details from './Pages/Details';
+import Search from './Pages/search';
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <AppProvider>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/search" element={<Search />} />
           <Route path="/details/:type/:id" element={<Details />} />
         </Routes>
       </AppProvider>

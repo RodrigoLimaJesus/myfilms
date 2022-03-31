@@ -9,14 +9,20 @@ import MyFilmsLogo from '../images/myfilms.png';
 export default function Header() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const pathsToShowGoBack = ['/details'];
+  const pathsToShowGoBack = ['/details', '/search'];
 
   const canGoBack = pathsToShowGoBack.some((path) => pathname.includes(path));
+  const canGoToSearch = pathname.includes('/search');
 
   const buttonsMenu = [
-    { icon: <BsSearch />, name: 'search-home-btn' },
-    { icon: <GiHamburgerMenu />, name: 'menu-home-btn' },
-    { icon: <FaUserCircle />, name: 'user-home-btn' },
+    {
+      icon: <BsSearch />,
+      name: 'search-home-btn',
+      linkTo: '/search',
+      disabled: canGoToSearch,
+    },
+    { icon: <GiHamburgerMenu />, name: 'menu-home-btn', linkTo: '', disabled: false },
+    { icon: <FaUserCircle />, name: 'user-home-btn', linkTo: '', disabled: false },
   ];
 
   return (
@@ -41,8 +47,13 @@ export default function Header() {
       </div>
 
       <div className="flex justify-between text-2xl w-24 md:text-3xl md:w-32">
-        {buttonsMenu.map(({ icon, name }) => (
-          <button key={name} type="button">
+        {buttonsMenu.map(({ icon, name, linkTo, disabled }) => (
+          <button
+            key={name}
+            type="button"
+            disabled={disabled}
+            onClick={() => navigate(linkTo)}
+          >
             {icon}
           </button>
         ))}
