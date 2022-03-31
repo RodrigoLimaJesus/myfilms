@@ -4,7 +4,6 @@ import AppContext from '../../context/AppContext';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import List from '../../components/List';
-import Loading from '../../components/Loading';
 
 import handleLists from '../../services/handleLists';
 import SearchInputs from './Components/SearchInputs';
@@ -12,7 +11,7 @@ import SearchNotFound from './Components/SearchNotFound';
 import InitialSearchs from './Components/InitialSearchs';
 
 export default function Search() {
-  const { popularMovies, popularTv, appLanguage } = useContext(AppContext);
+  const { appLanguage } = useContext(AppContext);
   const [hasTrySearch, setHasTrySearch] = useState(false);
   const [searchResponse, setSearhResponse] = useState([]);
   const [inputSearch, setInputSearch] = useState('');
