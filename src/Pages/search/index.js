@@ -4,10 +4,12 @@ import AppContext from '../../context/AppContext';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import List from '../../components/List';
+import Loading from '../../components/Loading';
 
 import handleLists from '../../services/handleLists';
 import SearchInputs from './Components/SearchInputs';
 import SearchNotFound from './Components/SearchNotFound';
+import InitialSearchs from './Components/InitialSearchs';
 
 export default function Search() {
   const { popularMovies, popularTv, appLanguage } = useContext(AppContext);
@@ -39,7 +41,7 @@ export default function Search() {
     }
   }, [inputSearch, inputType, canSearch, appLanguage]);
 
-  return (
+  return !canSearch ? (
     <div>
       <Header />
 
@@ -65,24 +67,13 @@ export default function Search() {
             <SearchNotFound />
           )
         ) : (
-          <>
-            <List
-              listContent={popularMovies}
-              listName="Pricipais buscas de filmes"
-              type="movie"
-              flexWrap
-            />
-            <List
-              listContent={popularTv}
-              listName="Pricipais buscas de séries"
-              type="tv"
-              flexWrap
-            />
-          </>
+          <InitialSearchs />
         )}
       </div>
 
       <Footer />
     </div>
+  ) : (
+    <Loading />
   );
 }

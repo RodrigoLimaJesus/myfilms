@@ -16,7 +16,13 @@ export default function SearchInputs(props) {
   ];
 
   return (
-    <div className="flex flex-col justify-center items-center lg:flex-row">
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        setCanSearch(true);
+      }}
+      className="flex flex-col justify-center items-center lg:flex-row"
+    >
       <div className="flex flex-row mb-4 lg:m-0 lg:mr-3">
         <input
           type="text"
@@ -47,13 +53,12 @@ export default function SearchInputs(props) {
       </div>
 
       <button
-        type="button"
-        onClick={() => setCanSearch(true)}
+        type="submit"
         disabled={canSearch}
         className="px-9 py-1 font-bold rounded-full bg-cyan-500 md:px-12 md:text-lg"
       >
         Buscar
       </button>
-    </div>
+    </form>
   );
 }
