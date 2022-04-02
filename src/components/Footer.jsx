@@ -5,10 +5,9 @@ export default function Footer() {
   return (
     <footer className="flex flex-col justify-between items-center md:flex-row md:text-lg lg:text-xl">
       <div className="flex flex-row justify-center items-center m-2 md:m-4">
-        <img src={TmdbLogo} alt="The Movie Database Logo" className="w-14" />
+        <img src={TmdbLogo} alt="The Movie Database Logo" className="select-none w-14" />
         <span className="text-xs ml-2 lg:text-sm">
-          This product uses the TMDB API but is not endorsed or certified by
-          TMDB.
+          This product uses the TMDB API but is not endorsed or certified by TMDB.
         </span>
       </div>
       <div className="flex flex-row justify-center items-center m-2 md:m-4">
@@ -17,7 +16,7 @@ export default function Footer() {
           href="https://github.com/RodrigoLimaJesus"
           rel="noreferrer"
           target="_blank"
-          className="mx-1"
+          className="mx-1 duration-300 hover:text-cyan-300 sm:text-2xl lg:text-3xl"
         >
           <BsGithub />
         </a>
@@ -25,7 +24,7 @@ export default function Footer() {
           href="https://www.linkedin.com/in/rodrigo-lima-jesus/"
           rel="noreferrer"
           target="_blank"
-          className="mx-1"
+          className="mx-1 duration-300 hover:text-cyan-300 sm:text-2xl lg:text-3xl"
         >
           <BsLinkedin />
         </a>

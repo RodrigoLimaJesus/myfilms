@@ -68,12 +68,27 @@ async function getSimilar({ id, type, language, page }) {
   }
 }
 
+async function geSearchByQuery({ type, language, query, page }) {
+  try {
+    const URL = `${BASE_URL}/search/${type}?api_key=${KEY_MOVIEDB}&language=${language}&query=${query}&page=${page}`;
+
+    const { data } = await axios.get(URL);
+
+    return data.results;
+  } catch (err) {
+    console.log(err.message);
+
+    return [];
+  }
+}
+
 const handleLists = {
   getPopular,
   getTopRated,
   getDetails,
   getVieos,
   getSimilar,
+  geSearchByQuery,
 };
 
 export default handleLists;

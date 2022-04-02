@@ -1,7 +1,6 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { FaUserCircle, FaArrowLeft } from 'react-icons/fa';
-import { GiHamburgerMenu } from 'react-icons/gi';
 import { BsSearch } from 'react-icons/bs';
 
 import MyFilmsLogo from '../images/myfilms.png';
@@ -9,14 +8,25 @@ import MyFilmsLogo from '../images/myfilms.png';
 export default function Header() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const pathsToShowGoBack = ['/details'];
+  const pathsToShowGoBack = ['/details', '/search'];
 
   const canGoBack = pathsToShowGoBack.some((path) => pathname.includes(path));
+  const canGoToSearch = pathname.includes('/search');
+  const canGoToProfile = pathname.includes('/profile');
 
   const buttonsMenu = [
-    { Icon: BsSearch, name: 'search-home-btn' },
-    { Icon: GiHamburgerMenu, name: 'menu-home-btn' },
-    { Icon: FaUserCircle, name: 'user-home-btn' },
+    {
+      icon: <BsSearch />,
+      name: 'search-home-btn',
+      linkTo: '/search',
+      disabled: canGoToSearch,
+    },
+    {
+      icon: <FaUserCircle />,
+      name: 'user-home-btn',
+      linkTo: '/profile',
+      disabled: canGoToProfile,
+    },
   ];
 
   return (
@@ -31,23 +41,24 @@ export default function Header() {
             <FaArrowLeft />
           </button>
         )}
-        <button
-          type="button"
-          onClick={() => navigate('/')}
-          disabled={!canGoBack}
-        >
+        <button type="button" onClick={() => navigate('/')} disabled={!canGoBack}>
           <img
             src={MyFilmsLogo}
             alt="MyFilms logo"
-            className="w-20 md:w-32 lg:w-40"
+            className="select-none w-20 sm:w-28 md:w-32 lg:w-40"
           />
         </button>
       </div>
 
-      <div className="flex justify-between text-2xl w-24 md:text-3xl md:w-32">
-        {buttonsMenu.map(({ Icon, name }) => (
-          <button key={name} type="button">
-            <Icon />
+      <div className="flex justify-between text-2xl w-16 md:text-3xl md:w-20">
+        {buttonsMenu.map(({ icon, name, linkTo, disabled }) => (
+          <button
+            key={name}
+            type="button"
+            disabled={disabled}
+            onClick={() => navigate(linkTo)}
+          >
+            {icon}
           </button>
         ))}
       </div>

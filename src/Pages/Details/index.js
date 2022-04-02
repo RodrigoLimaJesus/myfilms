@@ -58,6 +58,7 @@ export default function Details() {
         type={type}
         listName="Talvez você também goste"
         onClickInDetails={() => setIsMounted(false)}
+        flexWrap
       />
       <Footer />
     </div>

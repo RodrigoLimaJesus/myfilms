@@ -10,6 +10,7 @@ export default function FilmsProvider({ children }) {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const [popularTv, setPopularTv] = useState([]);
   const [topRatedTv, setTopRatedTv] = useState([]);
+
   const appLanguage = 'pt-br';
 
   useEffect(() => {
@@ -27,6 +28,7 @@ export default function FilmsProvider({ children }) {
       setTopRatedMovies(topRatedMv);
       setPopularTv(popularTv);
       setTopRatedTv(topRatedTv);
+
       setIsMounted(true);
     }
 

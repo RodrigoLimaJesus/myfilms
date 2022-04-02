@@ -22,7 +22,7 @@ export default function BackdropPath() {
         <div className="flex flex-row justify-between items-center">
           <Link
             to=""
-            className="text-xs flex flex-col items-center md:text-xl lg:text-2xl"
+            className="text-xs flex flex-col items-center sm:text-lg md:text-xl lg:text-2xl"
           >
             <BsPlusLg />
             <span className="mt-1">Minha Lista</span>
@@ -38,7 +38,7 @@ export default function BackdropPath() {
 
           <Link
             to={`details/${type}/${id}`}
-            className="text-xs flex flex-col items-center md:text-xl lg:text-2xl"
+            className="text-xs flex flex-col items-center sm:text-lg md:text-xl lg:text-2xl"
           >
             <AiOutlineInfoCircle />
             <span className="mt-1">Saiba mais</span>
