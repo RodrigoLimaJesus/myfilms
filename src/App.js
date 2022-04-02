@@ -5,8 +5,7 @@ import AppProvider from './context/AppProvider';
 import Home from './Pages/Home';
 import Details from './Pages/Details';
 import Search from './Pages/search';
-import NotFound from './Pages/NotFound';
-import InDevelopment from './Pages/InDevelopment';
+import InDevelopmentOrNotFound from './Pages/InDevelopmentOrNotFound';
 
 export default function App() {
   return (
@@ -15,9 +14,9 @@ export default function App() {
         <Routes>
           <Route path="/search" element={<Search />} />
           <Route path="/details/:type/:id" element={<Details />} />
-          <Route path="/profile" element={<InDevelopment />} />
+          <Route path="/profile" element={<InDevelopmentOrNotFound />} />
           <Route path="/" element={<Home />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<InDevelopmentOrNotFound />} />
         </Routes>
       </AppProvider>
     </div>
