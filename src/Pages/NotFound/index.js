@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import NotFoundImage from '../../images/not-found.svg';
+import NotFoundImage from '../../images/notFound.svg';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 

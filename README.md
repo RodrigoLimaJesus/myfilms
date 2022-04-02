@@ -8,17 +8,17 @@ Abaixo é possível ver algumas das telas já feitas, lembrando que o projeto ai
 
 ## Página Inicial
 
-<img src="./src/images/page-home.png" alt="Page home image" width="50%"/>
+<img src="./src/images/pageHome.png" alt="Page home image" width="50%"/>
 
 ## Página de detalhes
 
-<img src="./src/images/page-details.png" alt="Page details image" width="50%"/>
+<img src="./src/images/pageDetails.png" alt="Page details image" width="50%"/>
 
 ## Página de busca
 
-<img src="./src/images/page-search-initial.png" alt="Page search initial" width="45%"/>
-<img src="./src/images/page-search-done-films.png" alt="Page search done films" width="45%"/>
-<img src="./src/images/page-search-done-series.png" alt="Page search done series" width="45%"/>
-<img src="./src/images/page-search-not-found.png" alt="Page search not found" width="45%"/>
+<img src="./src/images/pageSearchInitial.png" alt="Page search initial" width="45%"/>
+<img src="./src/images/pageSearchDoneFilms.png" alt="Page search done films" width="45%"/>
+<img src="./src/images/pageSearchDoneSeries.png" alt="Page search done series" width="45%"/>
+<img src="./src/images/pageSearchNotFound.png" alt="Page search not found" width="45%"/>
 
 ### Feedbacks são muito bem vindos, sem eles tenho certeza que eu não conseguiria ter me desenvolvido até aqui, fiquem a vontade para contribuir!!
