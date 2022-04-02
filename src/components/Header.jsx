@@ -1,7 +1,6 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { FaUserCircle, FaArrowLeft } from 'react-icons/fa';
-import { GiHamburgerMenu } from 'react-icons/gi';
 import { BsSearch } from 'react-icons/bs';
 
 import MyFilmsLogo from '../images/myfilms.png';
@@ -13,6 +12,7 @@ export default function Header() {
 
   const canGoBack = pathsToShowGoBack.some((path) => pathname.includes(path));
   const canGoToSearch = pathname.includes('/search');
+  const canGoToProfile = pathname.includes('/profile');
 
   const buttonsMenu = [
     {
@@ -21,8 +21,12 @@ export default function Header() {
       linkTo: '/search',
       disabled: canGoToSearch,
     },
-    { icon: <GiHamburgerMenu />, name: 'menu-home-btn', linkTo: '', disabled: false },
-    { icon: <FaUserCircle />, name: 'user-home-btn', linkTo: '', disabled: false },
+    {
+      icon: <FaUserCircle />,
+      name: 'user-home-btn',
+      linkTo: '/profile',
+      disabled: canGoToProfile,
+    },
   ];
 
   return (
@@ -46,7 +50,7 @@ export default function Header() {
         </button>
       </div>
 
-      <div className="flex justify-between text-2xl w-24 md:text-3xl md:w-32">
+      <div className="flex justify-between text-2xl w-16 md:text-3xl md:w-20">
         {buttonsMenu.map(({ icon, name, linkTo, disabled }) => (
           <button
             key={name}
